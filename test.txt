@@ -1,3 +1,2 @@
 my new document to commit
-and now its updated
-updated local
+and now its updated locally changed
