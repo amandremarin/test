@@ -4,7 +4,7 @@ from collections import Counter
 import matplotlib.pyplot as plt
 
 def plot_top(x_ingredients):
-    root = root_from_xml_filename('cookbook_import_pages_current.xml')
+    root = root_from_xml_filename('../cookbook_import_pages_current.xml')
     all_ingredients = list_all_ingredients_from_root(root)
     ingredients_count = Counter(all_ingredients)
     top_x_ingredients = {key: value for (key, value) in ingredients_count.most_common(x_ingredients)}
