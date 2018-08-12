@@ -21,15 +21,21 @@ def lists_all_ingredients_from_root(root):
                 all_ingredients.append(ingredient)
     return all_ingredients
 
-def plot_from_ingredient_count(ingredient_count):
-    x = [i for i in range(len(ingredient_count))]
-    y = [i for i in ingredient_count.values()]
-    y.sort(reverse=True)
-    plt.bar(x, y)
+def plot_count_over(x_ingredients):
+    root = root_from_xml_filename('cookbook_import_pages_current.xml')
+    all_ingredients = lists_all_ingredients_from_root(root)
+    ingredients_count = Counter(all_ingredients)
+    over_x = {key: value for (key, value) in ingredients_count.items() if value > x_ingredients}
+    x = [i for i in range(len(over_x))]
+    y = [i for i in over_x.values()]
+    #y.sort(reverse=True)
+    plt.barh(x, y)
+    labels = [label for label in over_x.keys()]
+    plt.yticks(x, labels)
+    if x_ingredients >= 1000:
+        plt.tick_params(axis='y', labelsize=8)
+    elif x_ingredients >= 500:
+        plt.tick_params(axis='y', labelsize=5)
     plt.show()
 
-root = root_from_xml_filename('cookbook_import_pages_current.xml')
-all_ingredients = lists_all_ingredients_from_root(root)
-count_ingredients = Counter(all_ingredients)
-over_100 = {key: value for (key, value) in count_ingredients.items() if value > 100}
-plot_from_ingredient_count(over_100)
+plot_count_over(500)
