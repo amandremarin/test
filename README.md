@@ -1,5 +1,3 @@
-This repo is for finding trends in recipes' ingredients.
+Finding Trends in Recipes
 
-The data is in the zipped xml file. Extract the xml file and add it to the parent directory of top_ingredients.py's directory.
-
-**TODO:** Find which ingredients are paired the most in recipes, Break down top ingredients by cooking style (e.g. italian, asian, american)
+The data comes from http://recipes.wikia.com/wiki/Recipes_Wiki web pages. There is a csv file with all the recipes extracted from the web pages.
